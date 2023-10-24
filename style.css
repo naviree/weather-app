@@ -46,3 +46,38 @@ body {
   padding: 20px 30px;
   border: 1px solid skyblue;
 }
+.search-container {
+  position: relative;
+  width: 300px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 80px; /* Make space for the button */
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid skyblue;
+  border-radius: 20px;
+  outline: none;
+}
+.search-button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5px 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: #eee;
+}
+
+.search-input:focus {
+  border-color: #87ceeb;
+}
+
+.search-button:hover {
+  background-color: #ddd;
+}
