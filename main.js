@@ -1,3 +1,7 @@
+console.log("Hello world!");
+weatherCard = document.querySelector("weather-card");
 
-console.log("Hello world!")
-
+weatherCard.innerHtml = "HI THERE";
+weatherCard.innerHtml = "HI THERE";
+weatherCard.innerHtml = "HI THERE";
+weatherCard.innerHtml = "HI THERE";
