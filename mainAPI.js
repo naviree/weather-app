@@ -2,8 +2,8 @@
 // use that information to search api and display information
 
 class MainAPI {
-    constructor(baseUrl, apiKey) {
-        this.baseUrl = baseUrl;
+    constructor(apiKey) {
+        this.baseUrl = "https://api.openweathermap.org/data/2.5/weather";
         this.apiKey = apiKey;
     }
 
@@ -24,13 +24,26 @@ class MainAPI {
             });
     }
 
-    displayWeather(weatherData, containerId) {
-        const container = document.getElementById(containerId);
-        if (container && weatherData) {
-            container.innerHTML = `Temperature in ${weatherData.name}: ${weatherData.main.temp} °F`;
+    displayWeather(weatherData) {
+        const cityWeather = document.querySelector(".city");
+        if (cityWeather) {
+            cityWeather.innerHTML = `Weather in: ${weatherData.name}`;
         }
     }
 }
 
-// apiKey "db56630f29f62469bc6565b10244f9a3"
-// baseUrl"https://api.openweathermap.org/data/2.5/weather"
+const key = new MainAPI("db56630f29f62469bc6565b10244f9a3");
+
+document.querySelector(".search").addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const city = document.querySelector(".search-bar").value;
+
+    if (city) {
+        key.fetchWeatherData(city).then((data) => {
+            if (data) {
+                key.displayWeather(data);
+            }
+        });
+    }
+});
