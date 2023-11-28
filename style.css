@@ -38,56 +38,159 @@ body {
     background-repeat: no-repeat;
 }
 
-.content {
-
-  background: rgba(255, 255, 255, 0.24);
-  min-height: 40vh;
-  min-width: 30vw;
-  border-radius: 16px;
-  padding: 20px 30px;
-  border: 1px solid skyblue;
-}
-.search-container {
-  position: relative;
-  width: 300px;
-}
-
-.search-input {
-  width: 100%;
-  padding: 10px;
-  padding-right: 80px; /* Make space for the button */
-  font-size: 16px;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid skyblue;
-  border-radius: 20px;
-  outline: none;
+.card {
+    height: fit-content;
+    width: 360px;
+    background-color: #84a7ba;
+    position: relative;
+    padding-bottom: 50px;
+    margin: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 20px 20px 22px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    /* Add a font family */
+    color: #fcfcfc;
+    transition: all 0.5s ease-in-out;
 }
 
-.search-button {
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 5px 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  background-color: #eee;
+.weather img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.search-input:focus {
-  border-color: #87ceeb;
+h2,
+h6,
+h3 {
+    text-align: center;
 }
 
-.search-button:hover {
-  background-color: #ddd;
+h2 {
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 25px 0 10px 0;
+    text-transform: uppercase;
+}
 
-    background: rgba(255, 255, 255, 0.24);
-    min-height: 70vh;
-    min-width: 60vw;
-    border-radius: 16px;
-    padding: 20px 30px;
-    border: 1px solid skyblue;
+h6 {
+    font-size: 24px;
+    color: white;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
 
+h3 {
+    font-size: 50px;
+}
+
+.btn {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    position: absolute;
+    bottom: -15px;
+    right: -30px;
+}
+
+.hidden {
+    display: none;
+}
+
+.cold {
+    background-color: #405cff;
+    border: 1px solid #5f77ff;
+    color: #ccd4ff;
+}
+
+.warm {
+    background-color: #fbab76;
+    border: 1px solid #703b10;
+    color: #704810;
+}
+
+.weather.loading {
+    visibility: hidden;
+    max-height: 10px;
+    position: relative;
+}
+
+.weather.loading:after {
+    visibility: visible;
+    content: "Loading...";
+    color: #b3b3b3;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
+.container {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.details {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.details span {
+    color: #d3d3d3;
+}
+
+.details:first-child {
+    border-right: 1px solid #fcfcfc7e;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 2.5em;
+    width: 2.5em;
+    outline: none;
+    background: #b3b3b3;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.search-btn:hover {
+    background: #ffffff80;
+    color: white;
+}
+
+.search-bar {
+    outline: none;
+    border: none;
+    height: 1.5em;
+    padding: 1em;
+    padding-left: 2em;
+    background: #b3b3b3;
+    border-radius: 18px;
+    color: white;
+    font-family: inherit;
+    margin: 1em;
 }
