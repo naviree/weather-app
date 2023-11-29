@@ -9,7 +9,7 @@ class MainAPI {
 
     fetchWeatherData(city) {
         const url = `${this.baseUrl}?q=${city}&appid=${this.apiKey}&units=imperial`;
-
+        console.log(url);
         return fetch(url)
             .then((response) => {
                 if (!response.ok) {
@@ -26,8 +26,16 @@ class MainAPI {
 
     displayWeather(weatherData) {
         const cityWeather = document.querySelector(".city");
-        if (cityWeather) {
-            cityWeather.innerHTML = `Weather in: ${weatherData.name}`;
+        const cityTemp = document.querySelector(".weather-temp");
+        const cityHumidity = document.querySelector(".humidity");
+        const cityWindSpeed = document.querySelector(".wind-num");
+        if (cityWeather && cityTemp) {
+            cityWeather.innerHTML = `${weatherData.name}`;
+            cityTemp.innerHTML = `${Math.round(weatherData.main.temp)} ℉`;
+            cityHumidity.innerHTML = `${weatherData.main.humidity} %`;
+            cityWindSpeed.innerHTML = `${Math.round(
+                weatherData.wind.speed
+            )} mph`;
         }
     }
 }

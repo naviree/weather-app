@@ -10,7 +10,7 @@ body {
     align-items: center;
     overflow: hidden;
     height: 100vh;
-    background: beige;
+    background: #93b7be;
 }
 
 .card {
@@ -40,7 +40,7 @@ h3 {
 
 h2 {
     letter-spacing: 2px;
-    font-weight: 600;
+    font-weight: 600px;
     font-size: 14px;
     margin: 25px 0 10px 0;
     text-transform: uppercase;
@@ -61,7 +61,7 @@ h3 {
 .container {
     width: 70%;
     margin-left: 15%;
-    margin-top: 30px;
+    margin-top: 20px;
     display: grid;
     grid-template-columns: auto auto;
 }
@@ -120,7 +120,8 @@ h3 {
 }
 
 .city {
-    padding: 20px;
+    font-weight: 600px;
+    padding: 10px;
 }
 
 .weather-img {
