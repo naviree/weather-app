@@ -1,29 +1,40 @@
-// gather input from user in input field
-// use that information to search api and display information
-
+/**
+ * The `MainAPI` class is responsible for fetching weather data from the OpenWeatherMap API and displaying it on a webpage.
+ */
 class MainAPI {
+    /**
+     * Initializes the `MainAPI` object with the provided API key and sets the base URL for the API requests.
+     * @param {string} apiKey - The API key used to authenticate the requests to the OpenWeatherMap API.
+     */
     constructor(apiKey) {
         this.baseUrl = "https://api.openweathermap.org/data/2.5/weather";
         this.apiKey = apiKey;
     }
 
-    fetchWeatherData(city) {
+    /**
+     * Fetches weather data for the specified city from the OpenWeatherMap API.
+     * @param {string} city - The name of the city to fetch weather data for.
+     * @returns {Promise<object>} - A promise that resolves to the weather data in JSON format.
+     */
+    async fetchWeatherData(city) {
         const url = `${this.baseUrl}?q=${city}&appid=${this.apiKey}&units=imperial`;
-        console.log(url);
-        return fetch(url)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(
-                        `Error fetching weather data: ${response.statusText}`
-                    );
-                }
-                return response.json();
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(
+                    `Error fetching weather data: ${response.statusText}`
+                );
+            }
+            return response.json();
+        } catch (error) {
+            console.error("Error:", error);
+        }
     }
 
+    /**
+     * Displays the weather information on the webpage.
+     * @param {object} weatherData - The weather data to display.
+     */
     displayWeather(weatherData) {
         const cityWeather = document.querySelector(".city");
         const cityTemp = document.querySelector(".weather-temp");
